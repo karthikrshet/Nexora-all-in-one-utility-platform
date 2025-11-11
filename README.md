@@ -178,4 +178,3 @@ This project is licensed under the **Apache License 2.0** — see the [LICENSE](
 ## ⭐ Support
 
 If you like this project, please give it a **⭐ star** on GitHub — it motivates me to build more awesome projects!
-```
