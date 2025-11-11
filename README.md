@@ -256,19 +256,6 @@ See the [LICENSE](LICENSE) file for details.
 * All open-source contributors who made the tools behind Nexora possible
 
 ---
-
-### 💬 Tip
-
-> To make your README stand out on GitHub, add:
->
-> * Screenshots or demo GIFs (`/assets/demo.gif`)
-> * Live demo link
-> * Shields (e.g., ![GitHub stars](https://img.shields.io/github/stars/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration?style=social))
-
----
-
-```
-
 ---
 
 Would you like me to **customize the README even further** (e.g., include your actual utilities list like “QR Generator, Notes App, To-Do, Resume Builder,” etc.) so it looks more branded for **@Karthik_Shet**?
