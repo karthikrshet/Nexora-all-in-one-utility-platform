@@ -178,12 +178,4 @@ This project is licensed under the **Apache License 2.0** — see the [LICENSE](
 ## ⭐ Support
 
 If you like this project, please give it a **⭐ star** on GitHub — it motivates me to build more awesome projects!
-
-<p align="center">
-  <a href="https://github.com/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration">
-    <img src="https://img.shields.io/github/stars/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration?style=social" alt="GitHub Stars">
-  </a>
-</p>
 ```
-
----
