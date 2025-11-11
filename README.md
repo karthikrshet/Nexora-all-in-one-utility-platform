@@ -1,39 +1,3 @@
-
----
-
-```markdown
-<!-- PROJECT LOGO -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration/main/frontend/public/logo.png" alt="Nexora Logo" width="100" height="100">
-</p>
-
-<h1 align="center">🧭 Nexora — Multi-Utility Web Portal with Real-Time Tracking & AI Integration</h1>
-
-<p align="center">
-  <b>One portal. Infinite utilities. Smart AI assistance.</b>  
-  <br>
-  Built with ❤️ by <a href="https://github.com/karthikrshet">Karthik R Shet</a>
-  <br><br>
-  <a href="https://github.com/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration/stargazers"><img src="https://img.shields.io/github/stars/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration?style=for-the-badge"></a>
-  <a href="https://github.com/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration/network/members"><img src="https://img.shields.io/github/forks/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration?style=for-the-badge"></a>
-  <a href="https://github.com/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration/issues"><img src="https://img.shields.io/github/issues/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration?style=for-the-badge"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration?style=for-the-badge"></a>
-</p>
-
----
-
-## 🌐 Live Demo  
-🚀 [**View Project**](<LIVE_DEMO_URL_HERE>) *(Coming Soon)*
-
----
-
-## 📸 Preview  
-<p align="center">
-  <img src="https://raw.githubusercontent.com/karthikrshet/Nexora-A-Multi-Utility-Web-Portal-with-Real-Time-Usage-Tracking-and-AI-Integration/main/assets/preview.png" alt="Nexora Preview" width="80%">
-</p>
-
----
-
 ## 🧩 Overview  
 
 **Nexora** is a multi-utility productivity portal that bundles several useful web tools into one seamless interface — complete with real-time usage tracking and AI integration.  
