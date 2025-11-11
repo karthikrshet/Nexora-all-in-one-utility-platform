@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; }
+
+/* confetti fallback */
+.confetti-overlay { position: absolute; inset: 0; pointer-events: none; display:flex; align-items:flex-start; justify-content:center; gap:8px; z-index:60; }
+.confetti { font-size:26px; animation:confetti-fall 800ms ease-out forwards; transform-origin:center; }
+@keyframes confetti-fall { 0%{transform:translateY(-20px) scale(0.6);opacity:0} 30%{opacity:1;transform:translateY(0) scale(1.05)} 100%{transform:translateY(140px) scale(1) rotate(100deg);opacity:0} }
+
+/* small helper so confetti doesn't hide controls on top */
+.game-wrapper { position: relative; }
+/* small card tweaks for points */
+.game-points-badge {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+}
+.game-points-value {
+  font-size:1.5rem;
+  font-weight:700;
+}
+.game-points-meta { color: #6b7280; font-size:0.85rem; }

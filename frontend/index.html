@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexora Dashboard</title>
+  </head>
+  <body class="bg-gray-50">
+    <div id="root"></div>
+
+<!-- Nexora Chatbot Widget -->
+<div id="nexora-chat" style="position:fixed;right:20px;bottom:20px;z-index:9999">
+
+  <!-- Floating button with SVG logo -->
+  <div id="nexora-button" 
+    style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#3213C6,#6D28D9);
+           color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;
+           box-shadow:0 6px 18px rgba(0,0,0,0.2);transition:transform 0.2s ease-in-out;">
+    <!-- Logo SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="28" height="28">
+      <path d="M12 2C6.48 2 2 5.92 2 10.5c0 2.84 1.86 5.36 4.71 6.83L6 22l5.13-3.23c.29.03.58.05.87.05 5.52 0 10-3.92 10-8.5S17.52 2 12 2z"/>
+    </svg>
+  </div>
+
+  <!-- Chat Panel -->
+  <div id="nexora-panel"
+    style="display:none;width:340px;height:480px;max-width:90vw;max-height:80vh;
+           background:#fff;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.25);
+           overflow:hidden;margin-bottom:12px;transition:all 0.3s ease-in-out;">
+    
+    <!-- Header -->
+    <div style="padding:14px;
+                background:linear-gradient(135deg,#3213C6,#6D28D9);
+                color:#fff;font-weight:600;
+                display:flex;align-items:center;justify-content:space-between;">
+      <span>Nexora Assistant</span>
+      <!-- Close button -->
+      <span id="nexora-close" style="cursor:pointer;font-size:20px;font-weight:bold;">✕</span>
+    </div>
+
+    <!-- Messages area -->
+    <div id="nexora-messages" 
+      style="padding:14px;height:360px;overflow:auto;background:#f9fafb;font-size:14px;">
+    </div>
+
+    <!-- Input area -->
+    <div style="display:flex;padding:10px;border-top:1px solid #eee;background:#fff;">
+      <input id="nexora-input" placeholder="Type a message..." 
+        style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;" />
+      <button id="nexora-send"
+        style="margin-left:8px;padding:10px 14px;border-radius:8px;border:none;
+               background:linear-gradient(135deg,#3213C6,#6D28D9);color:#fff;cursor:pointer;
+               transition:background 0.2s;">
+        ➤
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const btn = document.getElementById("nexora-button");
+  const panel = document.getElementById("nexora-panel");
+  const closeBtn = document.getElementById("nexora-close");
+  const messagesDiv = document.getElementById("nexora-messages");
+  const input = document.getElementById("nexora-input");
+  const send = document.getElementById("nexora-send");
+
+  let conversation = [{ role: "system", content: "You are Nexora assistant. Be helpful and concise." }];
+
+  btn.addEventListener("click", () => {
+    panel.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  function appendMessage(who, text) {
+    const el = document.createElement("div");
+    el.style.margin = "8px 0";
+    el.style.fontSize = "14px";
+    el.innerHTML = who === "user"
+      ? `<div style="text-align:right">
+           <div style="display:inline-block;background:#3213C6;color:#fff;
+                       padding:10px 12px;border-radius:10px;max-width:75%;">
+             ${escapeHtml(text)}
+           </div>
+         </div>`
+      : `<div style="text-align:left">
+           <div style="display:inline-block;background:#f1f1f9;color:#333;
+                       padding:10px 12px;border-radius:10px;max-width:75%;">
+             ${escapeHtml(text)}
+           </div>
+         </div>`;
+    messagesDiv.appendChild(el);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  function escapeHtml(s){ 
+    return s.replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); 
+  }
+
+  async function sendMessage(text) {
+    appendMessage("user", text);
+    conversation.push({ role: "user", content: text });
+
+    appendMessage("bot", "…"); // placeholder
+
+    try {
+      const resp = await fetch("http://localhost:3001/api/chat", {
+        method: "POST",
+        headers: { "Content-Type":"application/json" },
+        body: JSON.stringify({ messages: conversation })
+      });
+      const data = await resp.json();
+      messagesDiv.lastChild.remove();
+
+      const reply = (data.choices && data.choices[0]?.message?.content)
+                    || (data.error && data.error.message)
+                    || "No reply";
+      appendMessage("bot", reply);
+      conversation.push({ role: "assistant", content: reply });
+    } catch (err) {
+      messagesDiv.lastChild.remove();
+      appendMessage("bot", "⚠️ Error: could not reach server.");
+      console.error(err);
+    }
+  }
+
+  send.addEventListener("click", () => {
+    const v = input.value.trim();
+    if (!v) return;
+    input.value = "";
+    sendMessage(v);
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") send.click();
+  });
+})();
+</script>
+<!-- End Nexora Chatbot Widget -->
+
+
+
+
+
+
+
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

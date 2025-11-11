@@ -1,0 +1,31 @@
+{
+  "name": "mern-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "axios": "^1.7.2",
+    "deep-chat": "^2.2.2",
+    "deep-chat-react": "^2.2.2",
+    "deep-chat-web-llm": "^0.0.27",
+    "framer-motion": "^12.23.12",
+    "react": "^18.2.0",
+    "react-confetti": "^6.4.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.1",
+    "socket.io-client": "^4.7.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.4.1"
+  }
+}
