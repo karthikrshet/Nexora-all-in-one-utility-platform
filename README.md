@@ -241,6 +241,3 @@ See the [LICENSE](LICENSE) file for details.
 * Express & MongoDB for backend
 * OpenAI API for chatbot functionality
 * Socket.IO for real-time updates
-
-Would you like me to include **badges** (stars, forks, license, etc.) and a **“Live Demo”** section next? I can add that header automatically.
-```
